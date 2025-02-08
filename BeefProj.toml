@@ -1,0 +1,28 @@
+FileVersion = 1
+Dependencies = {corlib = "*", corlib = "*"}
+
+[Project]
+Name = "yoga-beef"
+TargetType = "BeefLib"
+StartupObject = "yoga_beef.Program"
+
+[Configs.Debug.Win64]
+CLibType = "Static"
+BeefLibType = "Static"
+LibPaths = ["$(ProjectDir)/libs/release/x64/yogacore.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/libs/release/x64/*\")"]
+
+[Configs.Debug.wasm32]
+LibPaths = ["$(ProjectDir)/libs/release/x64/yoga.wasm"]
+
+[Configs.Release.Win64]
+OtherLinkFlags = "$(LinkFlags) -lmath"
+LibPaths = ["$(ProjectDir)/libs/release/x64/yogacore.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/libs/release/x64/*\")"]
+
+[Configs.StaticRelease.Win64]
+OtherLinkFlags = "$(LinkFlags) -libpath:\"$(ProjectDir)/libs/release/x64\""
+LibPaths = ["$(ProjectDir)\\libs\\release\\x64\\staticyogacore.lib", "user32.lib", "gdi32.lib", "windowsapp.lib", "shell32.lib"]
+
+[Configs.StaticRelease.wasm32]
+LibPaths = ["$(ProjectDir)\\libs\\release\\wasm\\libyoga.a"]
