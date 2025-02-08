@@ -13,3 +13,5 @@ It is suggested to read the [Yoga documentation](https://www.yogalayout.dev/docs
 # Getting started
 
 There is an [example](./example) in this repo which demonstrates laying out a simple application with a header, a navigation, and a content area. It requires `raylib-beef` to render.
+
+![screenshot](screenshot.png)
