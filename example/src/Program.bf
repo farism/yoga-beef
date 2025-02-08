@@ -78,7 +78,7 @@ class Program
 
 		let navigation = YGNodeNew();
 		YGNodeStyleSetWidthPercent(navigation, 20);
-		YGNodeStyleSetMargin(navigation, .YGEdgeRight, 2);
+		YGNodeStyleSetMargin(navigation, .YGEdgeRight, 1);
 		YGNodeInsertChild(body, navigation, 0);
 
 		while (!WindowShouldClose())
@@ -87,9 +87,9 @@ class Program
 			ClearBackground(BLACK);
 
 			YGNodeCalculateLayout(root, GetScreenWidth(), GetScreenHeight(), .YGDirectionLTR);
-			DrawNode(header, .(255, 0, 0, 150));
-			DrawNode(navigation, .(0, 255, 0, 150));
-			DrawNode(content, .(0, 0, 255, 150));
+			DrawNode(header, .(255, 255, 255, 100));
+			DrawNode(navigation, .(255, 255, 255, 50));
+			DrawNode(content, .(255, 255, 255, 25));
 
 			EndDrawing();
 		}
